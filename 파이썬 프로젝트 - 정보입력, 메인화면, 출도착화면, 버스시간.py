@@ -127,7 +127,7 @@ def arrival():
 #TK인터가 여러 개 필요해서 각 TK인터가 나오는 것을 def로 해버렸더니 나중에 작동하는 mainloop부터 실행이 되어서 순서를 좀 바꿨습니다.
 def readtime_gettime():
     nowtime=dt.datetime.now()
-    h=nowtime.hour
+    h=int(nowtime.hour)
     seoul_daejeon = [6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
     seoul_daegu = [0,1,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
     seoul_busan = [1,2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
@@ -143,100 +143,112 @@ def readtime_gettime():
     if dep_arr[1]=='서울':
         if dep_arr[0]=='대전':
             for i in seoul_daejeon:
-                if h>i:
-                    seoul_daejeon.remove(i)   
-            readtime='가장 빠른 출발 시간 : {}시'.format(seoul_daejeon[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
         elif dep_arr[0]=='대구':
             for i in seoul_daegu:
-                if h>i:
-                    seoul_daegu.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(seoul_daegu[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
         elif dep_arr[0]=='부산':
             for i in seoul_busan:
-                if h>i:
-                    seoul_busan.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(seoul_busan[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
     elif dep_arr[1]=='대전':
         if dep_arr[0]=='서울':
             for i in daejeon_seoul:
-                if h>i:
-                    daejeon_seoul.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(daejeon_seoul[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
         elif dep_arr[0]=='대구':
             for i in daejeon_daegu:
-                if h>i:
-                    daejeon_daegu.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(daejeon_daegu[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
         elif dep_arr[0]=='부산':
             for i in daejeon_busan:
-                if h>i:
-                    daejeon_busan.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(daejeon_busan[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
     elif dep_arr[1]=='대구':
         if dep_arr[0]=='서울':
             for i in daegu_seoul:
-                if h>i:
-                    daegu_seoul.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(daegu_seoul[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
         elif dep_arr[0]=='대전':
             for i in daegu_daejeon:
-                if h>i:
-                    daegu_daejeon.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(daegu_daejeon[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
         elif dep_arr[0]=='부산':
             for i in daegu_busan:
-                if h>i:
-                    daegu_busan.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(daegu_busan[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a', encoding='UTF-8')
             filename.write(readtime)
             filename.close()
     elif dep_arr[1]=='부산':
         if dep_arr[0]=='서울':
             for i in busan_seoul:
-                if h>i:
-                    busan_seoul.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(busan_seoul[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
         elif dep_arr[0]=='대전':
             for i in busan_daejeon:
-                if h>i:
-                    busan_daejeon.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(busan_daejeon[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
         elif dep_arr[0]=='대구':
             for i in busan_daegu:
-                if h>i:
-                    busan_daegu.remove(i)
-            readtime='가장 빠른 출발 시간 : {}시'.format(busan_daegu[0])            
+                if h<i:
+                    h=i
+                    break
+            readtime='가장 빠른 출발 시간 : {}시'.format(h)            
             filename=open('information.txt', 'a',encoding='UTF-8')
             filename.write(readtime)
             filename.close()
@@ -417,6 +429,9 @@ readread=sidefile.read()
 sidefile.close()
 sidewindow=Tk()
 sidewindow.title('예비버스예매정보안내')
+sidewindow.geometry('400x200')
+blankk=Label(sidewindow, text='')
+blankk.pack()
 sidelabel=Label(sidewindow, text='예매정보확인')
 sidelabel.pack()
 sidelabell=Label(sidewindow, text=readread)
@@ -426,5 +441,4 @@ sidelabel2=Label(sidewindow)
 sidelabel2.pack()
 sidebutton=Button(sidewindow, text='확인', command=sidecmd)
 sidebutton.pack()
-
 sidewindow.mainloop()
